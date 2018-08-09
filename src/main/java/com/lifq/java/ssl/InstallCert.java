@@ -34,7 +34,6 @@ public class InstallCert {
     public static void main(String[] args1) throws Exception {
     	
     	String args[] = {"open.jia-fu.cn"};
-//    	String args[] = {"xinfushe.com"};
     	
         String host;
         int port;
