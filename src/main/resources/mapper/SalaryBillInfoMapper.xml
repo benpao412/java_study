@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xfs.salary.dao.SalaryBillInfoDao">
+
+    <!-- salary_bill_info table all fields -->
+    <sql id="Base_Column_List">
+    id,title,month,type,owner_id,file_id,file_name,file_password,gmt_create,gmt_modify,status,dr,total_amount,
+    total_person,send_desc,matching_rule,excel_header,send_time,year,moon,sheet_index,send_num,nosend_num,revoke_num,
+    catetory,notice,msg_desc,create_user,modify_user
+  </sql>
+
+    <!-- 查询条件 -->
+    <sql id="Example_Where_Clause">
+        <trim prefix=" WHERE " prefixOverrides="AND ">
+            <if test="id != null">and id = #{id}</if>
+            <if test="title != null">and title = #{title}</if>
+            <if test="month != null">and month = #{month}</if>
+            <if test="type != null">and type = #{type}</if>
+            <if test="ownerId != null">and owner_id = #{ownerId}</if>
+            <if test="fileId != null">and file_id = #{fileId}</if>
+            <if test="fileName != null">and file_name = #{fileName}</if>
+            <if test="filePassword != null" >and file_password = #{filePassword}</if>
+            <if test="gmtCreate != null">and gmt_create = #{gmtCreate}</if>
+            <if test="gmtModify != null">and gmt_modify = #{gmtModify}</if>
+            <if test="status != null">and status = #{status}</if>
+            <if test="dr != null">and dr = #{dr}</if>
+            <if test="totalAmount != null">and total_amount = #{totalAmount}</if>
+            <if test="totalPerson != null">and total_person = #{totalPerson}</if>
+            <if test="sendDesc != null">and send_desc = #{sendDesc}</if>
+            <if test="matchingRule != null">and matching_rule = #{matchingRule}</if>
+            <if test="excelHeader != null">and excel_header = #{excelHeader}</if>
+            <if test="sendTime != null">and send_time = #{sendTime}</if>
+            <if test="year != null">and year = #{year}</if>
+            <if test="moon != null">and moon = #{moon}</if>
+            <if test="sheetIndex != null">and sheet_index = #{sheetIndex}</if>
+            <if test="sendNum != null">and send_num = #{sendNum}</if>
+            <if test="nosendNum != null">and nosend_num = #{nosendNum}</if>
+            <if test="catetory != null" >and catetory = #{catetory}</if>
+			<if test="notice != null" >and notice = #{notice}</if>
+			<if test="msgDesc != null" >and msg_desc = #{msgDesc}</if>
+            <if test="createUser != null">and create_user = #{createUser}</if>
+            <if test="modifyUser != null">and modify_user = #{modifyUser}</if>
+        </trim>
+    </sql>
+
+    <!-- 工资单表 列表总数-->
+    <select id="countFindAll" resultType="java.lang.Integer">
+        SELECT count(1) as value FROM SALARY_BILL_INFO
+    </select>
+
+     
+
+    <!-- 根据id查询 工资单表 -->
+    <select id="findByPK" resultType="com.lifq.java.mybatis.model.SalaryBillInfo" parameterType="Object">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM SALARY_BILL_INFO WHERE ID=#{id}  
+    </select>
+    
+</mapper>
