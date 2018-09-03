@@ -22,7 +22,9 @@ public class MybatisDemo1 {
 		try {
 //		  SalaryBillInfo salaryBillinfo = (SalaryBillInfo) session.selectOne("findByPK", 803);
 		  SalaryBillInfo salaryBillinfo = (SalaryBillInfo) session.selectOne("com.lifq.java.mybatis.dao.SalaryBillInfoDao.findByPK1", 803);
+		  SalaryBillInfo salaryBillinfo2 = (SalaryBillInfo) session.selectOne("com.lifq.java.mybatis.dao.SalaryBillInfoDao.findByPK1", 803);
 		  System.out.println(salaryBillinfo.getTitle());
+		  System.out.println(salaryBillinfo2.getTitle());
 		} finally {
 		  session.close();
 		}
