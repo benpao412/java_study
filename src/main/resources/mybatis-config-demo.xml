@@ -12,9 +12,15 @@
         
     </settings>
     
-    <!-- typeAliases,类型别名是为 Java 类型设置一个短的名字。它只和 XML 配置有关，存在的意义仅在于用来减少类完全限定名的冗余。 -->
-    <typeAliases>
+    <!-- typeAliases,类型别名是为 Java 类型设置一个短的名字。它只和 XML 配置有关，存在的意义仅在于用来减少类完全限定名的冗余。
+    	当这样配置时，SalaryBillInfo可以用在任何使用com.lifq.java.mybatis.model.SalaryBillInfo的地方。 -->
+    <!-- <typeAliases>
 	  <typeAlias alias="SalaryBillInfo" type="com.lifq.java.mybatis.model.SalaryBillInfo"/>
+	</typeAliases> -->
+	
+	<!-- 也可以指定一个包名，MyBatis 会在包名下面搜索需要的 Java Bean -->
+	<typeAliases>
+	  <package  name = "com.lifq.java.mybatis.model" />
 	</typeAliases>
     
     <plugins>
