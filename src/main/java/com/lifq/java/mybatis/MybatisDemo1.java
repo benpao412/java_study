@@ -21,8 +21,8 @@ public class MybatisDemo1 {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 //		  SalaryBillInfo salaryBillinfo = (SalaryBillInfo) session.selectOne("findByPK", 803);
-		  SalaryBillInfo salaryBillinfo = (SalaryBillInfo) session.selectOne("com.lifq.java.mybatis.dao.SalaryBillInfoDao.findByPK1", 803);
-		  SalaryBillInfo salaryBillinfo2 = (SalaryBillInfo) session.selectOne("com.lifq.java.mybatis.dao.SalaryBillInfoDao.findByPK1", 803);
+		  SalaryBillInfo salaryBillinfo = (SalaryBillInfo) session.selectOne("com.lifq.java.mybatis.dao.SalaryBillInfoDao.findByPK", 1);
+		  SalaryBillInfo salaryBillinfo2 = (SalaryBillInfo) session.selectOne("com.lifq.java.mybatis.dao.SalaryBillInfoDao.findByPK", 1);
 		  System.out.println(salaryBillinfo.getTitle());
 		  System.out.println(salaryBillinfo2.getTitle());
 		} finally {

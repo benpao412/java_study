@@ -7,7 +7,19 @@
 	<settings>
         <!-- 打印查询语句 -->
         <setting name="logImpl" value="STDOUT_LOGGING" />
+        
+        <setting name="cacheEnabled" value="false"/>
+        
     </settings>
+    
+    <!-- typeAliases,类型别名是为 Java 类型设置一个短的名字。它只和 XML 配置有关，存在的意义仅在于用来减少类完全限定名的冗余。 -->
+    <typeAliases>
+	  <typeAlias alias="SalaryBillInfo" type="com.lifq.java.mybatis.model.SalaryBillInfo"/>
+	</typeAliases>
+    
+    <plugins>
+	  	<plugin interceptor="com.lifq.java.mybatis.plugin.ExamplePlugin"></plugin>
+	</plugins>
 
 
 
@@ -16,9 +28,9 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://192.168.0.12/xfs?useUnicode=true"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1/xfs?useUnicode=true"/>
         <property name="username" value="root"/>
-        <property name="password" value="mingming"/>
+        <property name="password" value="123456"/>
       </dataSource>
     </environment>
   </environments>
@@ -27,5 +39,6 @@
   <mappers>
     <mapper resource="mapper/SalaryBillInfoMapper.xml"/>
   </mappers>
+  
   
 </configuration>
