@@ -8,7 +8,7 @@
         <!-- 打印查询语句 -->
         <setting name="logImpl" value="STDOUT_LOGGING" />
         
-        <setting name="cacheEnabled" value="false"/>
+        <setting name="cacheEnabled" value="true"/>
         
     </settings>
     
@@ -23,9 +23,9 @@
 	  <package  name = "com.lifq.java.mybatis.model" />
 	</typeAliases>
     
-    <plugins>
+    <!-- <plugins>
 	  	<plugin interceptor="com.lifq.java.mybatis.plugin.ExamplePlugin"></plugin>
-	</plugins>
+	</plugins> -->
 
 
 
@@ -43,7 +43,15 @@
   
    
   <mappers>
-    <mapper resource="mapper/SalaryBillInfoMapper.xml"/>
+  <!-- resource -->
+     <mapper resource="mapper/SalaryBillInfoMapper.xml"/>  
+  <!-- url -->
+    <!-- <mapper url="file:///D:\workspace2017\Study\src\main\resources\mapper\SalaryBillInfoMapper.xml"/> -->
+  <!-- 使用映射器接口实现类的完全限定类名 -->
+  	<!-- <mapper class="com.lifq.java.mybatis.dao.SalaryBillInfoDao" /> -->
+  <!-- 将包内的映射器接口实现全部注册为映射器 -->
+  	<!-- <package name="com.lifq.java.mybatis.dao"/> -->
+    
   </mappers>
   
   

@@ -2,6 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lifq.java.mybatis.dao.SalaryBillInfoDao">
 
+	<cache></cache>
+
+	<resultMap type="com.lifq.java.mybatis.model.SalaryBillInfo" id="resultMapInfo">
+		<result column="id" property="id" />
+		<result column="owner_id" property="ownerId" />
+		<result column="file_id" property="fileId" />
+	</resultMap>
+
     <!-- salary_bill_info table all fields -->
     <sql id="Base_Column_List">
     id,title,month,type,owner_id,file_id,file_name,file_password,gmt_create,gmt_modify,status,dr,total_amount,
@@ -55,6 +63,18 @@
         SELECT
         <include refid="Base_Column_List"></include>
         FROM SALARY_BILL_INFO WHERE ID=#{id}  
+    </select>
+    
+    <select id="findMapByPK" resultType="hashmap" parameterType="Object">
+        SELECT * FROM SALARY_BILL_INFO WHERE ID=#{id}  
+    </select>
+    
+    <select id="findResultMapByPK" resultMap="resultMapInfo" parameterType="Object" >
+        SELECT * FROM SALARY_BILL_INFO WHERE ID=#{id}  
+    </select>
+    
+    <select id="findMapByIntegerVal" parameterType="int" resultType="map" >
+    	select * from salary_bill_info where id=#{id}
     </select>
     
 </mapper>

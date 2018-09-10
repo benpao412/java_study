@@ -10,6 +10,8 @@ import java.util.Date;
  * @date 2017/05/18 16:21:37
  * @auth liuj
  */
+
+//@Alias("author")
 public class SalaryBillInfo implements Serializable {
 
     /**
